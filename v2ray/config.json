@@ -1,0 +1,37 @@
+{
+  "inbounds": [{
+	# 1. SOCKS 代理端口，在浏览器中需配置代理并指向这个端口
+    "port": 1080,
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "udp": true
+    }
+  }],
+  "outbounds": [{
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [{
+	  	# 2. 服务器地址，需要修改为自己的服务器
+        "address": "server-ip",
+		# 3. 服务器端口
+        "port": server-port,
+		# 4. 服务器配置文件的UUID
+        "users": [{ "id": "********-****-****-****-************" }]
+      }]
+    }
+  },{
+    "protocol": "freedom",
+    "tag": "direct",
+    "settings": {}
+  }],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [{
+      "type": "field",
+      "ip": ["geoip:private"],
+      "outboundTag": "direct"
+    }]
+  }
+}
+
