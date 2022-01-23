@@ -1,0 +1,58 @@
+set nu
+set ff=unix
+set hlsearch
+set incsearch
+set helplang=cn
+set encoding=utf-8
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set cindent
+
+map <c-]> g<c-]>
+map <F6> :<ESC>g<c-]>
+
+"set tags+=~/tool/linux-4.14.172/tags
+set tags+=~/tool/linux-4.9.115/tags
+set tags+=~/tool/code-linux-4.9.115/tags
+set tags+=~/tool/u-boot-2020.01/tags
+
+set tags+=/home/xiami/tool/busybox-1.31.1/tags
+
+set tags+=/home/xiami/code/esp32/esp-idf-bak/tags
+
+set tags+=/home/xiami/nanopi-neo/linux/tags
+
+
+"===================================
+"Tag List set
+filetype on
+nmap <F9> :TlistToggle<CR>
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Inc_WinWidth = 0
+let Tlist_Exit_OnlyWindow = 0
+
+let Tlist_Auto_Open = 0
+let Tlist_Use_Right_Window = 1
+
+"===================================
+"Source Explorer set
+nmap <F8> :SrcExplToggle<CR>
+nmap <C-H> <C-W>h	"Move to left window
+nmap <C-J> <C-W>j	"Move to down window
+nmap <C-K> <C-W>k	"Move to up window
+nmap <C-L> <C-W>l	"Move to right window
+
+let g:SrcExpl_winHeight = 8
+let g:SrcExpl_refreshTime = 100
+let g:SrcExpl_jumpKey = "<ENTER>"
+let g:SrcExpl_gobackKey = "<SPACE>"
+let g:SrcExpl_isUpdateTags = 0
+
+
+"===================================
+"NERD Tree set
+let NERDTreeWinPos = "left"
+nmap <F7> :NERDTreeToggle<CR>
+
+
